@@ -1,0 +1,14 @@
+---
+- name: Creating users and creating files in users home dir
+  hosts: all
+  tasks:
+   - name: Creating a user
+     user:
+      name: Radhika
+      password: intelliq
+      home: /home/ubuntu/Radhika
+   - name: Creating files
+     file:
+      name: /home/ubuntu/Radhika/file1
+      state: touch
+...

@@ -1,0 +1,15 @@
+---
+- name: Installing git and cloning a remote git repo
+  hosts: all
+  tasks:
+   - name: Installing git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+   - name: Clone a remote git repo
+     git:
+      repo: https://github.com/selenium-saikrishna/FunctionalTesting.git
+      dest: /home/ubuntu/testing
+
+...
