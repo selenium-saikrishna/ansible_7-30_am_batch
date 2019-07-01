@@ -1,0 +1,15 @@
+---
+- name: Installing,uninstalling,upgrading s/w packages
+  hosts: all
+  tasks:
+   - name: Install/uninstall/upgrade s/w's
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: tree,b: present,c: no}
+      - {a: git,b: absent,c: yes}
+      - {a: default-jdk,b: latest,c: no}
+      - {a: apache2,b: present,c: yes}
+...

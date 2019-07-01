@@ -1,0 +1,19 @@
+---
+- name: Installing using yum or apt
+  hosts: all
+  tasks:
+   - block: 
+      - name: Installing tomcat on ubuntu based machines 
+        apt:
+         name: tomcat8
+         state: present
+         update_cache: yes
+     rescue:
+      - name: Installing tomcat on redhat,centos
+        yum:
+         name: tomcat8
+         state: present
+         update_cache: yes
+      
+
+

@@ -1,0 +1,16 @@
+---
+- name: Create a user and display the output
+  hosts: all
+  tasks:
+   - name: Create user
+     user:
+      name: Hari
+      password: intelliq
+      home: /home/Hari
+      uid: 6789
+     register: results
+   - name: Display output of user
+     debug:
+      var: results
+
+

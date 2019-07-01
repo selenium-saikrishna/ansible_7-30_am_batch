@@ -1,0 +1,15 @@
+---
+- name: Install apache2 using playscope variables
+  hosts: all
+  become: yes
+  vars:
+   - a: apache2
+   - b: present
+   - c: no
+  tasks:
+   - name: Install apache2
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...

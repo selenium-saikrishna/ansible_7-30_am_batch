@@ -1,0 +1,10 @@
+---
+a: Ramesh
+b: intelliq
+c: /home/ubuntu/Ramesh
+d: 5432
+e: /bin/sh
+f: firewalld
+g: absent
+h: no
+...

@@ -1,0 +1,26 @@
+---
+- name: Configuring tomcat8
+  hosts: all
+  tasks:
+   - name: Install tomcat8
+     apt:
+      name: tomcat8
+      state: present
+      update_cache: no
+     notify: Modify tomcat-users.xml
+   - name: change port of tomcat from 8080 to 9090
+     replace:
+      regexp: 8080
+      replace: 9090
+      path: /etc/tomcat8/server.xml
+     notify: Restart tomcat8
+  handlers:
+   - name: Restart tomcat8
+     service:
+      name: tomcat8
+      state: restarted
+   - name: Modify tomcat-users.xml
+     copy:
+      src: /home/ubuntu/tomcat-users.xml
+      dest: /etc/tomcat8
+

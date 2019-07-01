@@ -1,0 +1,9 @@
+---
+- name: Creating files uisng host scope variables
+  hosts: 172.31.80.184
+  tasks:
+   - name: File creation
+     file:
+      name: "{{a}}"
+      state: "{{b}}"
+

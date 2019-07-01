@@ -1,0 +1,24 @@
+---
+- name: Tagging of modules
+  hosts: all
+  tasks:
+   - name: Install git
+     apt:
+      name: git
+      state: present
+     tags: 
+       git_installation
+   - name: UserCreation
+     user:
+      name: Harish
+      password: intelliq
+     tags:
+      user_creation
+   - name: Copy the passwd file
+     copy:
+      src: /etc/passwd
+      dest: /tmp
+... 
+
+
+
